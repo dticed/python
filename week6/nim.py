@@ -14,6 +14,12 @@ def partida():
         print("Você escolheu uma partida isolada!")
     if tipo_partida == "2":
         print("Você escolheu um campeonato!")
+        rodadas = 1
+        while rodadas <= 3:
+            print("**** Rodada ****", rodadas)
+            rodadas = rodadas + 1
+            n = int(input("Quantas peças? "))
+            m = int(input("Limite de peças por jogada? "))
 
     
     computador_escolhe_jogada(n,m)
