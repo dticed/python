@@ -1,0 +1,2 @@
+n = quantidade de peças inicial no tabuleiro
+m = número máximo de peças por rodada
