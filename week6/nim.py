@@ -2,7 +2,23 @@ def main():
     partida()
 
 def computador_escolhe_jogada(n,m):
-    return
+    for i in range(1, m+1):
+        if ((n - (i + 1)) % (m + 1) == 0):
+            n = n - 1
+            print("O computador tirou " + str(i) + "peças.")
+            if n > 0:
+                print("Agora restam " + str(n) + "peças no tabuleiro.")
+                usuario_escolhe_jogada(n,m)
+            else:
+                print("Fim do jogo! O computador ganhou!")
+        else:
+            n = n - m
+            print("O computador tirou " + str(m) + "peças.")
+            if n > 0:
+                print("Agora restam " + str(n) + "peças no tabuleiro.")
+                usuario_escolhe_jogada(n,m)
+            else:
+                print("Fim do jogo! O computador ganhou!")
 
 def usuario_escolhe_jogada(n,m):
     retirada = int(input("Quantas peças você vai tirar? "))
@@ -11,11 +27,16 @@ def usuario_escolhe_jogada(n,m):
         usuario_escolhe_jogada(n,m)
     else:
         n = n - retirada
-    return n
+        if(n > 0):
+            computador_escolhe_jogada(n,m)
+        else:
+            print("Fim do jogo. Você ganhou!")
 
 def partida_isolada():
     print("Você escolheu uma partida isolada!")
-    verifica_inicio()
+    n = int(input("Quantas peças? "))
+    m = int(input("Limite de peças por jogada? "))
+    verifica_inicio(n,m)
     return
 
 def campeonato():
@@ -31,7 +52,7 @@ def campeonato():
     return
 
 def verifica_inicio(n,m):
-    if n % (m + 1):
+    if n % (m + 1) == 0:
         print("Você começa!")
         usuario_escolhe_jogada(n,m)
     else:
@@ -46,9 +67,5 @@ def partida():
         campeonato()
     else:
         print("Você digitou o número errado. Encerrando jogo!")
-
-        
-    computador_escolhe_jogada(n,m)
-    usuario_escolhe_jogada(n,m)
 
 main()
