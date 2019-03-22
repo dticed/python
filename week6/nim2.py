@@ -3,13 +3,12 @@ import sys
 placar_computador = 0
 placar_usuario = 0
 
-def main():
-    partida()
+
 
 def computador_escolhe_jogada(n,m):
     global placar_computador
     for i in range(1, m+1):
-        if ((n - (i + 1)) % (m + 1) == 0):
+        if n == n % (m+1):
             n = n - 1
             if i > 1:  
                 print("O computador tirou " + str(i) + " peças.")
@@ -110,4 +109,4 @@ def partida():
     else:
         print("Você digitou o número errado. Encerrando jogo!")
 
-main()
+partida()
